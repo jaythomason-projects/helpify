@@ -18,7 +18,7 @@ const chatgptService = {
       const response = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
         messages: [
-          { role: "system", content: `Revise the following message to make it ${instruction}:` },
+          { role: "system", content: `You are a helpful assistant that revises the user's message based on the following instruction: ${instruction} Return your revised message only.`},
           { role: "user", content: message },
         ],
         temperature: 0.7,
