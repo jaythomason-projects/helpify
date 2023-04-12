@@ -1,7 +1,7 @@
 import { Configuration, OpenAIApi } from "openai";
 
 const apiKey = process.env.REACT_APP_CHATGPT_API_KEY;
-console.log("API key: ", apiKey);
+//console.log("API key: ", apiKey);
 
 if (!apiKey) {
   throw new Error("API key is not set in the .env file")

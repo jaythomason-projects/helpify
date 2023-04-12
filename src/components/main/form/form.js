@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { reviseMessage } from './reviseMessage';
 
-export default function Form() {
+function Form() {
   const [message, setMessage] = useState('');
   const [revisedMessage, setRevisedMessage] = useState('');
   const [selectedTab, setSelectedTab] = useState(null);
@@ -16,6 +16,10 @@ export default function Form() {
       setInstruction(clickedTab);
     }
   };
+
+  useEffect(() => {
+    console.log("Selected tab: ", instruction);
+  }, [instruction]);
 
   return (
     <div>
@@ -32,12 +36,6 @@ export default function Form() {
         placeholder='Enter your message'
         rows={5}
       />
-      <input
-        type="text"
-        value={instruction}
-        onChange={(e) => setInstruction(e.target.value)}
-        placeholder="Enter instruction"
-      />
       <button onClick={() => reviseMessage(message, instruction, setRevisedMessage)}>
         Revise Message
       </button>
@@ -46,3 +44,5 @@ export default function Form() {
     </div>
   );
 }
+
+export default Form;
