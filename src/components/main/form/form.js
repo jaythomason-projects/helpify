@@ -22,25 +22,31 @@ function Form() {
   }, [instruction]);
 
   return (
-    <div>
-      <h1>Revise Message Test</h1>
-      <button onClick={() => handleTabClick("Understanding")}>
-        Understanding
-      </button>
-      <button onClick={() => handleTabClick("Instructional")}>
-        Instructional
-      </button>
+    <div className='form'>
+      <div>
+        <button onClick={() => handleTabClick("Understanding")}>
+          Understanding
+        </button>
+        <button onClick={() => handleTabClick("Instructional")}>
+          Instructional
+        </button>
+        <p>{instruction}</p>
+      </div>
       <textarea
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         placeholder='Enter your message'
-        rows={5}
+        rows={10}
       />
       <button onClick={() => reviseMessage(message, instruction, setRevisedMessage)}>
         Revise Message
       </button>
       <p>Revised message:</p>
-      <p>{revisedMessage}</p>
+      <textarea
+        value={revisedMessage}
+        placeholder='Revised message'
+        rows={10}
+      />
     </div>
   );
 }
