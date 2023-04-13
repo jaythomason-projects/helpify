@@ -24,12 +24,8 @@ function Form() {
   return (
     <div className='form'>
       <div>
-        <button onClick={() => handleTabClick("Understanding")}>
-          Understanding
-        </button>
-        <button onClick={() => handleTabClick("Instructional")}>
-          Instructional
-        </button>
+        <button onClick={() => handleTabClick("Understanding")}>Understanding</button>
+        <button onClick={() => handleTabClick("Instructional")}>Instructional</button>
         <p>{instruction}</p>
       </div>
       <textarea
@@ -38,9 +34,7 @@ function Form() {
         placeholder='Enter your message'
         rows={10}
       />
-      <button onClick={() => reviseMessage(message, instruction, setRevisedMessage)}>
-        Revise Message
-      </button>
+      <button onClick={() => reviseMessage(message, instruction, setRevisedMessage)}>Revise Message</button>
       <p>Revised message:</p>
       <textarea
         value={revisedMessage}
