@@ -3,10 +3,17 @@ import { reviseMessage } from './reviseMessage';
 
 function Form() {
   const [message, setMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const [revisedMessage, setRevisedMessage] = useState('');
   const [selectedTab, setSelectedTab] = useState(null);
   const [instruction, setInstruction] = useState("Default");
 
+  const handleReviseMessage = async () => {
+    setIsLoading(true);
+    await reviseMessage(message, instruction, setRevisedMessage, setIsLoading);
+    setIsLoading(false);
+  }
+  
   const handleTabClick = (clickedTab) => {
     if (selectedTab === clickedTab) {
       setSelectedTab(null);
@@ -52,9 +59,11 @@ function Form() {
           rows={10}
         />
 
-        <button className='revise-message-button' onClick={() => reviseMessage(message, instruction, setRevisedMessage)}>Revise Message</button>
+        <button className='revise-message-button' onClick={handleReviseMessage}>Revise Message</button>
 
         <label htmlFor="revised-message" className="message-label">Revised message:</label>
+        {/* Conditionally render the 'loading' div */}
+        {isLoading && <div>Loading...</div>}
         <textarea
           id='revised-message'
           value={revisedMessage}
