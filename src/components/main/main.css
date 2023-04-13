@@ -1,4 +1,17 @@
-.form {
+.form-wrapper {
   display: grid;
+  margin: auto;
   width: clamp(480px, 80%, 1024px);
+}
+
+.selected {
+  background-color: lightblue;
+}
+
+.message-section > * {
+  display: block;
+}
+
+.message-section textarea {
+  width: 100%;
 }
