@@ -22,25 +22,39 @@ function Form() {
   }, [instruction]);
 
   return (
-    <div className='form'>
-      <div>
-        <button onClick={() => handleTabClick("Understanding")}>Understanding</button>
-        <button onClick={() => handleTabClick("Instructional")}>Instructional</button>
-        <p>{instruction}</p>
-      </div>
-      <textarea
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-        placeholder='Enter your message'
-        rows={10}
-      />
-      <button onClick={() => reviseMessage(message, instruction, setRevisedMessage)}>Revise Message</button>
-      <p>Revised message:</p>
-      <textarea
-        value={revisedMessage}
-        placeholder='Revised message'
-        rows={10}
-      />
+    <div className='form-wrapper'>
+      <form>
+        <section className='instructions-section'>
+          <p>Choose the tone of your response:</p>
+          <div className='instruction-tabs'>
+            <button onClick={() => handleTabClick("Understanding")}>Understanding</button>
+            <button onClick={() => handleTabClick("Instructional")}>Instructional</button>
+          </div>
+          <p>{instruction}</p>
+        </section>
+
+        <section className='message-section'>
+          <label htmlFor="original-message" className="message-label">Enter your message:</label>
+          <textarea
+            id='original-message'
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            placeholder='Enter your message'
+            rows={10}
+          />
+
+          <button className='revise-message-button' onClick={() => reviseMessage(message, instruction, setRevisedMessage)}>Revise Message</button>
+
+          <label htmlFor="revised-message" className="message-label">Revised message:</label>
+          <textarea
+            id='revised-message'
+            value={revisedMessage}
+            placeholder='Revised message will appear here'
+            rows={10}
+            readOnly
+          />
+        </section>
+      </form>
     </div>
   );
 }
