@@ -1,7 +1,7 @@
 import { Configuration, OpenAIApi } from "openai";
 
 const apiKey = process.env.REACT_APP_CHATGPT_API_KEY;
-//console.log("API key: ", apiKey);
+console.log("API key: ", apiKey);
 
 if (!apiKey) {
   throw new Error("API key is not set in the .env file")
@@ -21,7 +21,7 @@ const chatgptService = {
           { role: "system", content: `You are a helpful assistant that revises the user's message based on the following instruction: ${instruction} Return your revised message only, with the greeting 'Hello' and the sign-off 'Regards'`},
           { role: "user", content: message },
         ],
-        temperature: 0.5,
+        temperature: 0.7,
       });
 
       return response.data.choices[0].message.content;
