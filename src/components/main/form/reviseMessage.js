@@ -8,7 +8,7 @@ export const reviseMessage = async (message, instruction, setRevisedMessage) => 
       prompt = 'Make this message sound clear, concise and professional.';
       break;
     case 'Understanding':
-      prompt = 'This message is being sent to a frustrated person. Make it sound professional and understanding.';
+      prompt = 'This message is being sent to an upset or frustrated person. Make it sound more understanding.';
       break;
     case 'Instructional':
       prompt = 'This message contains technical instructions. Make these instructions simple and easy to follow.';

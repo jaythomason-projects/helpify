@@ -3,9 +3,9 @@ import './header.css'
 
 export default function header() {
   return (
-    <div className='header-wrapper'>
-      <h1>Helpify</h1>
-      <h3>Helps service desk teams produce easy-to-follow and friendly customer support messages</h3>
-    </div>
+    <header className='header-wrapper space-below'>
+      <h1 className='title'>Helpify</h1>
+      Helping service desk teams produce easy-to-follow and friendly customer support messages
+    </header>
   );
 }

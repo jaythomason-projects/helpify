@@ -1,17 +1,38 @@
 .form-wrapper {
   display: grid;
   margin: auto;
-  width: clamp(480px, 80%, 1024px);
+  width: clamp(360px, 85%, 1080px);
 }
 
-.selected {
-  background-color: lightblue;
+.instruction-tabs {
+  display: flex;
 }
 
-.message-section > * {
-  display: block;
+.instruction-tabs button {
+  background-color: gray;
+}
+
+.instruction-tabs .selected {
+  background-color: var(--color-primary);
 }
 
 .message-section textarea {
   width: 100%;
+}
+
+.textarea-container {
+  position: relative;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 7px);
+  background-color: hsla(0, 0%, 0%, 0.5);
+  z-index: 1;
 }
