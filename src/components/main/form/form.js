@@ -31,46 +31,48 @@ function Form() {
   return (
     <div className='form-wrapper'>
       <section className='instructions-section'>
-        <p>Choose the tone of your response:</p>
+        Adjust the tone of your response:
         <div className='instruction-tabs'>
           <button 
             className={selectedTab === "Understanding" ? "selected" : ""}
             onClick={() => handleTabClick("Understanding")}
-          >
-            Understanding
+          > More Understanding
           </button>
           <button 
             className={selectedTab === "Instructional" ? "selected" : ""}
             onClick={() => handleTabClick("Instructional")}
-          >
-            Instructional
+          > More Instructional
           </button>
         </div>
-        <p>{instruction}</p>
       </section>
 
       <section className='message-section'>
-        <label htmlFor="original-message" className="message-label">Enter your message:</label>
-        <textarea
-          id='original-message'
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          placeholder='Enter your message'
-          rows={10}
-        />
+        <div className='original-message space-above space-below'>
+          <label htmlFor="original-message" className="message-label">Enter your message:</label>
+          <textarea
+            id='original-message'
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            placeholder='Enter your message'
+            rows={12}
+          />
+        </div>
 
         <button className='revise-message-button' onClick={handleReviseMessage}>Revise Message</button>
-
-        <label htmlFor="revised-message" className="message-label">Revised message:</label>
-        {/* Conditionally render the 'loading' div */}
-        {isLoading && <div>Loading...</div>}
-        <textarea
-          id='revised-message'
-          value={revisedMessage}
-          placeholder='Revised message will appear here'
-          rows={10}
-          readOnly
-        />
+        
+        <div className='revised-message space-above'>
+          <label htmlFor="revised-message" className="message-label">Revised message:</label>
+          <div className="textarea-container">
+            {isLoading && <div className='loading'>Loading...</div>}
+            <textarea
+              id='revised-message'
+              value={revisedMessage}
+              placeholder='Revised message will appear here'
+              rows={12}
+              readOnly
+            />
+          </div>
+        </div>
       </section>
     </div>
   );
