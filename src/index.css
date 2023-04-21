@@ -26,7 +26,10 @@ code {
   --base-spacing: 1rem;
   --color-primary: hsl(18, 84%, 48%);
   --color-primary-dark: hsl(18, 84%, 32%);
-  --color-primary-light :hsl(18, 84%, 64%);
+  --color-primary-light :hsl(18, 84%, 56%);
+  --gradient-primary: 18, 84%, 48%;
+  --gradient-primary-dark: 18, 84%, 32%;
+  --gradient-primary-light: 18, 84%, 56%;
 }
 
 /*--------------------------------------------------*/
@@ -40,13 +43,23 @@ body {
 }
 
 button {
-  background-color: var(--color-primary);
+  background-color: var(--color-primary-light);
+  background-image: linear-gradient(to bottom, hsla(var(--gradient-primary-dark), 0), hsla(var(--gradient-primary-dark), .5));
   border-color: var(--color-primary-dark);
   border-radius: .5rem;
   border-style: solid;
   color: white;
   cursor: pointer;
   padding: .5rem;
+  transition: 0.1s;
+}
+
+button:hover {
+  border-color: var(--color-primary-light);
+}
+
+button:active {
+  background-color: var(--color-primary-dark);
 }
 
 /*--------------------------------------------------*/

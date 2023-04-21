@@ -47,7 +47,7 @@ function Form() {
       </section>
 
       <section className='message-section'>
-        <div className='original-message space-above space-below'>
+        <div className='original-message space-above'>
           <label htmlFor="original-message" className="message-label">Enter your message:</label>
           <textarea
             id='original-message'

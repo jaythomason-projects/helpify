@@ -14,7 +14,7 @@
 }
 
 .instruction-tabs .selected {
-  background-color: var(--color-primary);
+  background-color: var(--color-primary-light);
 }
 
 .message-section textarea {
