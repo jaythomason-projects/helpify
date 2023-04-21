@@ -53,7 +53,7 @@ function Form() {
             id='original-message'
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            placeholder='Enter your message'
+            placeholder='Hello Beth, Can you please turn your computer off and then on again? Regards, Steve'
             rows={12}
           />
         </div>
